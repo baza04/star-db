@@ -1,21 +1,27 @@
-import React from "react";
+import React from 'react';
 
-const swapiUrl = "https://swapi.dev/api/people/1/";
+import Header from '../header';
+import RandomPlanet from '../random-planet';
+import ItemList from '../item-list';
+import PersonDetails from '../person-details';
 
-const getHeroes = async (url = swapiUrl) => {
-  const res = await fetch(url);
-  const body = await res.json();
-  return body;
-};
+import './app.css';
 
 const App = () => {
   return (
-    <>
-      {getHeroes(swapiUrl).then((body) => {
-        console.log(body);
-      })}
-      <h1>App</h1>
-    </>
+    <div>
+      <Header />
+      <RandomPlanet />
+
+      <div className="row mb2">
+        <div className="col-md-6">
+          <ItemList />
+        </div>
+        <div className="col-md-6">
+          <PersonDetails />
+        </div>
+      </div>
+    </div>
   );
 };
 
